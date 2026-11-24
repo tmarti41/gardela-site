@@ -3,25 +3,299 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Gardela – vakarienės visai savaitei</title>
-<meta name="description" content="Gardela sudėlioja savaitės vakarienių planą ir pirkinių sąrašą su kainomis tavo parduotuvėje.">
-<link rel="stylesheet" href="/style.css">
+<title>Gardela – vakarienės visai savaitei, su kainomis</title>
+<meta name="description" content="Gardela sudėlioja savaitės vakarienių planą pagal tavo šeimą, laiką ir biudžetą, o pirkinių sąrašą – su tikromis Maxima ir Rimi kainomis. Programėlė iPhone.">
+<meta name="theme-color" content="#F4F7F1">
+<link rel="canonical" href="https://gardela.lt/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="lt_LT">
+<meta property="og:site_name" content="Gardela">
+<meta property="og:url" content="https://gardela.lt/">
+<meta property="og:title" content="Gardela – vakarienės visai savaitei, su kainomis">
+<meta property="og:description" content="Savaitės vakarienių planas ir pirkinių sąrašas su tikromis Maxima ir Rimi kainomis.">
+<meta property="og:image" content="https://gardela.lt/img/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preload" href="fonts/nunito-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/nunito-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="site.css">
 </head>
 <body>
-<main>
-<header><a class="brand" href="/">Gardela</a></header>
-<h1>Vakarienės visai savaitei</h1>
-<p>Gardela sudėlioja savaitės vakarienių planą pagal tavo šeimą, laiką ir biudžetą, o pirkinių sąrašą – su kainomis tavo parduotuvėje.</p>
-<div class="card">
-<p><strong>Planuok</strong> – vakarienės kiekvienai gaminimo dienai.</p>
-<p><strong>Pirk</strong> – sąrašas su kainomis iš tavo parduotuvės.</p>
-<p style="margin:0"><strong>Gamink</strong> – žingsnis po žingsnio, su laikmačiais.</p>
-</div>
-<p>Klausimai ir pasiūlymai: <a href="mailto:gardela.support@gmail.com">gardela.support@gmail.com</a></p>
-<footer>
-<a href="/privatumas">Privatumo politika</a>
-<a href="/salygos">Naudojimo sąlygos</a>
-</footer>
+<a class="skip" href="#turinys">Pereiti prie turinio</a>
+
+<header class="top" id="top">
+  <div class="top-in">
+  <a class="brand" href="#turinys" aria-label="Gardela – į puslapio viršų">
+    <img src="img/gardela-192.png" width="44" height="44" alt="">
+    <span>Gardela</span>
+  </a>
+  <nav class="top-nav" aria-label="Puslapio dalys">
+    <a href="#savaite">Savaitės kaina</a>
+    <a href="#kaip-veikia">Kaip veikia</a>
+    <a href="#kainos">Kainos</a>
+    <a href="#duk">Klausimai</a>
+  </nav>
+  <span class="soon"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.6" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10.5 18.3h3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Netrukus App Store</span>
+  <button type="button" class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="mnav" aria-label="Meniu"><span></span><span></span><span></span></button>
+  </div>
+  <nav class="mnav" id="mnav" aria-label="Puslapio dalys" hidden>
+    <a href="#savaite">Savaitės kaina</a>
+    <a href="#kaip-veikia">Kaip veikia</a>
+    <a href="#kainos">Kainos</a>
+    <a href="#duk">Klausimai</a>
+  </nav>
+</header>
+
+<main id="turinys">
+
+<section class="hero">
+  <div class="hero-copy">
+    <h1>Vakarienės visai savaitei&nbsp;– ir&nbsp;žinai, kiek kainuos</h1>
+    <p class="lead">Gardela sudėlioja savaitės vakarienes pagal tavo šeimą, laiką ir biudžetą. Pirkinių sąrašas – su tikromis Maxima ir Rimi kainomis.</p>
+    <div class="hero-cta">
+      <span class="soon soon-lg"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.6" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10.5 18.3h3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Netrukus App Store</span>
+      <a class="quiet-link" href="#savaite">Suskaičiuok savo savaitę</a>
+    </div>
+    <ul class="proof">
+      <li>7 dienos nemokamai</li>
+      <li>Nereikia registruotis</li>
+      <li>Be reklamų</li>
+    </ul>
+  </div>
+
+  <div class="demo" aria-label="Veikiantis programėlės pavyzdys">
+    <div class="phone">
+      <div class="phone-island" aria-hidden="true"></div>
+      <div class="phone-status" aria-hidden="true"><span>9:41</span><svg viewBox="0 0 46 12" width="46" height="12"><path d="M1 9.5h2v2H1zM5 7.5h2v4H5zM9 5.5h2v6H9zM13 3h2v8.5h-2z" fill="currentColor"/><path d="M20.5 5.2a6 6 0 0 1 7 0M22 7.6a3.6 3.6 0 0 1 4 0" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="24" cy="10" r="1.1" fill="currentColor"/><rect x="32.5" y="2.5" width="11" height="7.5" rx="2.2" fill="none" stroke="currentColor" stroke-width="1"/><rect x="34" y="4" width="8" height="4.5" rx="1" fill="currentColor"/></svg></div>
+      <div class="screen" id="screen" tabindex="-1">
+        <noscript><p class="noscript">Pavyzdžiui reikia įjungto „JavaScript“.</p></noscript>
+      </div>
+    </div>
+    <div class="demo-side">
+      <div class="demo-tabs" role="tablist" aria-label="Pavyzdžio ekranai">
+        <button role="tab" id="tab-plan" data-tab="plan" aria-selected="true" aria-controls="screen">Planas</button>
+        <button role="tab" id="tab-recipe" data-tab="recipe" aria-selected="false" aria-controls="screen" tabindex="-1">Receptas</button>
+        <button role="tab" id="tab-list" data-tab="list" aria-selected="false" aria-controls="screen" tabindex="-1">Pirkiniai</button>
+        <button role="tab" id="tab-cook" data-tab="cook" aria-selected="false" aria-controls="screen" tabindex="-1">Gaminimas</button>
+      </div>
+      <p class="demo-hint" id="demo-hint">Tai veikiantis pavyzdys – bakstelėk patiekalą, pakeisk jį kitu, pažymėk pirkinį.</p>
+    </div>
+  </div>
+</section>
+
+<section class="week" id="savaite" aria-labelledby="savaite-h">
+  <div class="wrap">
+    <div class="week-head">
+      <h2 id="savaite-h">Kiek kainuos tavo savaitė?</h2>
+      <p>Pasirink, kiek jūsų ir kur perki. Čia – taupios savaitės pavyzdys; programėlėje savaitę dėlioji iš šimtų receptų.</p>
+    </div>
+
+    <div class="week-controls">
+      <div class="ctl">
+        <span class="ctl-label" id="lbl-people">Žmonių</span>
+        <div class="stepper" role="group" aria-labelledby="lbl-people">
+          <button type="button" id="people-minus" aria-label="Mažiau žmonių">−</button>
+          <output id="people-val" aria-live="polite">4</output>
+          <button type="button" id="people-plus" aria-label="Daugiau žmonių">+</button>
+        </div>
+      </div>
+      <div class="ctl">
+        <span class="ctl-label" id="lbl-dinners">Vakarienių</span>
+        <div class="seg" role="radiogroup" aria-labelledby="lbl-dinners" id="seg-dinners">
+          <button type="button" role="radio" aria-checked="false" data-v="3">3</button>
+          <button type="button" role="radio" aria-checked="true" data-v="5">5</button>
+          <button type="button" role="radio" aria-checked="false" data-v="7">7</button>
+        </div>
+      </div>
+      <div class="ctl">
+        <span class="ctl-label" id="lbl-store">Parduotuvė</span>
+        <div class="seg" role="radiogroup" aria-labelledby="lbl-store" id="seg-store">
+          <button type="button" role="radio" aria-checked="true" data-v="maxima">Maxima</button>
+          <button type="button" role="radio" aria-checked="false" data-v="rimi">Rimi</button>
+        </div>
+      </div>
+    </div>
+
+    <ol class="plates" id="plates" aria-label="Savaitės vakarienės"></ol>
+
+    <div class="week-total">
+      <div class="tag" aria-live="polite">
+        <span class="tag-hole" aria-hidden="true"></span>
+        <span class="tag-label" id="total-label">5 vakarienės 4 žmonėms</span>
+        <strong class="tag-sum" id="total-sum">24,92 €</strong>
+      </div>
+      <p class="week-avg" id="total-avg"></p>
+    </div>
+    <p class="week-note">Porcijų kainos suskaičiuotos iš įprastų Maxima ir Rimi lentynų kainų, be akcijų ir kortelių nuolaidų. Duomenys – 2026 m. lapkričio 13 d.</p>
+  </div>
+</section>
+
+<section class="how" id="kaip-veikia" aria-labelledby="how-h">
+  <div class="wrap">
+    <h2 id="how-h">Sekmadienį&nbsp;– dvi minutės. Visą savaitę&nbsp;– aišku, kas vakarienei.</h2>
+    <ol class="steps">
+      <li class="step">
+        <div class="vignette v-ask" aria-hidden="true">
+          <div class="v-q">Kiek laiko turi vakarienei?</div>
+          <div class="v-chips"><span>20 min</span><span class="on">30 min</span><span>45 min</span></div>
+          <div class="v-q">Kur perki?</div>
+          <div class="v-chips"><span class="on">Maxima</span><span>Rimi</span><span>Lidl</span></div>
+        </div>
+        <h3>Atsakai į 9 klausimus</h3>
+        <p>Kiek jūsų, ką valgot ir ko nevalgot, kiek laiko turi, koks biudžetas ir kur perki. Užtrunka apie dvi minutes.</p>
+      </li>
+      <li class="step">
+        <div class="vignette v-plan" aria-hidden="true">
+          <div class="v-row"><img src="img/plate-cacio.webp" width="44" height="44" alt="" loading="lazy"><span><b>Pirmadienis</b>Cacio e pepe spagečiai</span><i></i></div>
+          <div class="v-row"><img src="img/plate-soboro.webp" width="44" height="44" alt="" loading="lazy"><span><b>Antradienis</b>Soboro don</span><i></i></div>
+          <div class="v-row"><img src="img/plate-salti.webp" width="44" height="44" alt="" loading="lazy"><span><b>Trečiadienis</b>Šaltibarščiai</span><i></i></div>
+        </div>
+        <h3>Gardela sudėlioja savaitę</h3>
+        <p>Po vakarienę kiekvienai dienai, kai gamini. Kuris nors patiekalas netinka – pakeiti vienu paspaudimu arba išsirenki pats.</p>
+      </li>
+      <li class="step">
+        <div class="vignette v-list" aria-hidden="true">
+          <div class="v-item done"><i></i><span>Spagečiai, 400 g</span><em>0,75 €</em></div>
+          <div class="v-item done"><i></i><span>Kiaušiniai, 10 vnt.</span><em>2,19 €</em></div>
+          <div class="v-item"><i></i><span>Kefyras, 1 kg</span><em>0,89 €</em></div>
+          <div class="v-sum"><span>Kasoje apie</span><b>33 €</b></div>
+        </div>
+        <h3>Perki pagal sąrašą ir gamini</h3>
+        <p>Sąrašas surūšiuotas pagal parduotuvės skyrius, su kainomis. Receptai – žingsnis po žingsnio, su laikmačiais, kai reikia palaukti.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="diff" id="kuo-kitokia" aria-labelledby="diff-h">
+  <div class="wrap">
+    <h2 id="diff-h">Ne dar viena receptų knyga</h2>
+    <div class="diff-grid">
+      <article>
+        <h3>Tikros kainos, ne „apie“</h3>
+        <p>Maxima ir Rimi įprastos lentynų kainos – be akcijų ir kortelių nuolaidų. Peržiūrime jas kas mėnesį.</p>
+      </article>
+      <article>
+        <h3>Biudžetas&nbsp;– nuo pat pradžių</h3>
+        <p>Pasakai, kiek nori išleisti per savaitę. Planas taikosi prie tos sumos ir iškart rodo, kiek kainuos.</p>
+      </article>
+      <article>
+        <h3>Vakarienės visiems prie stalo</h3>
+        <p>Porcijos skaičiuojamos pagal tai, kiek jūsų – ir suaugusiųjų, ir vaikų. Alergenus ir tai, ko nevalgot, pažymi vieną kartą.</p>
+      </article>
+      <article>
+        <h3>Šimtai receptų</h3>
+        <p>Lietuviška, itališka, azijietiška, meksikietiška ir kitos virtuvės. Katalogas nuolat pildomas.</p>
+      </article>
+      <article>
+        <h3>Gamini žingsnis po žingsnio</h3>
+        <p>Ekrane – vienas žingsnis stambiu šriftu. Kur reikia palaukti, laikmatis paleidžiamas vienu paspaudimu.</p>
+      </article>
+      <article>
+        <h3>Sąrašas žino, ką turi namie</h3>
+        <p>Druskos ar aliejaus kaskart nepirksi: ką turi, pažymi – ir į sumą tai nebeskaičiuojama.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="pricing" id="kainos" aria-labelledby="price-h">
+  <div class="wrap">
+    <h2 id="price-h">Septynios dienos nemokamai. Toliau&nbsp;– nuo 2,50&nbsp;€ per mėnesį.</h2>
+    <div class="plans">
+      <article class="plan plan-year">
+        <header>
+          <h3>Metams</h3>
+          <span class="badge">Sutaupai 50 %</span>
+        </header>
+        <p class="price"><strong>29,99 €</strong><span>per metus</span></p>
+        <p class="price-sub">≈ 2,50 € per mėnesį</p>
+      </article>
+      <article class="plan">
+        <header><h3>Mėnesiui</h3></header>
+        <p class="price"><strong>4,99 €</strong><span>per mėnesį</span></p>
+        <p class="price-sub">Atšauki, kada nori</p>
+      </article>
+      <ul class="included">
+        <li>Savaitės planas pagal tavo atsakymus</li>
+        <li>Pirkinių sąrašas pagal tavo parduotuvę</li>
+        <li>Visi receptai žingsnis po žingsnio</li>
+        <li>Nauji planai, kai tik reikia</li>
+      </ul>
+    </div>
+    <p class="fine">Abu planai prasideda 7 dienomis nemokamai, jei bandomojo dar neturėjai. Po jų prenumerata atsinaujina pati, kol atšauksi – tai padarysi App Store nustatymuose. Kainos – Lietuvos App Store.</p>
+  </div>
+</section>
+
+<section class="faq" id="duk" aria-labelledby="faq-h">
+  <div class="wrap faq-wrap">
+    <div class="faq-head"><h2 id="faq-h">Klausimai, kuriuos užduotum</h2><p>Neradai atsakymo? Parašyk: <a href="mailto:info@gardela.lt">info@gardela.lt</a></p></div>
+    <div class="faq-list">
+      <details>
+        <summary>Iš kur kainos ir ar jos tikslios?</summary>
+        <p>Maxima ir Rimi kainas imame iš jų elektroninių parduotuvių: įprastas lentynų kainas, be akcijų ir lojalumo kortelių nuolaidų. Peržiūrime jas kas mėnesį. Jei perki Lidl, Iki ar Norfoje, kainos bus apytikslės – programėlėje jos pažymėtos ženklu ≈. Tikras kitų parduotuvių kainas planuojame pridėti. Kasoje suma gali šiek tiek skirtis: parduotuvės kainas keičia dažniau nei mes.</p>
+      </details>
+      <details>
+        <summary>Ar reikia registruotis?</summary>
+        <p>Ne. Atsisiunti, atsakai į klausimus – ir Gardela sudėlioja tavo savaitę. Paskyros kurti nereikia. Prisijungti el. paštu arba su „Apple“ verta tik tam, kad planas neprapultų pakeitus telefoną.</p>
+      </details>
+      <details>
+        <summary>Kaip atšaukti prenumeratą?</summary>
+        <p>Programėlėje: Profilis → „Valdyti prenumeratą“. Arba telefone: Settings → tavo vardas → Subscriptions → Gardela. Atšaukus viskas veikia iki apmokėto laikotarpio pabaigos, o tos savaitės planas ir pirkinių sąrašas lieka matomi iki savaitės pabaigos.</p>
+      </details>
+      <details>
+        <summary>Ar tinka vegetarams ir turintiems alergijų?</summary>
+        <p>Taip. Gali rinktis: valgau viską, vegetariškai, veganiškai arba be mėsos, bet su žuvimi. Pažymėk alergenus – glitimą, pieno produktus, kiaušinius, riešutus, žuvį, vėžiagyvius, sezamą ar soją – ir receptų su jais plane nebus. Receptus atrenkame pagal ingredientus, bet gamintojų etiketes visada patikrink pats.</p>
+      </details>
+      <details>
+        <summary>O jei patiekalas nepatinka?</summary>
+        <p>Bet kurią dieną gali paprašyti kito pasiūlymo arba išsirinkti patiekalą pats. Kitos dienos lieka kaip buvo, o pirkinių sąrašas ir savaitės kaina persiskaičiuoja.</p>
+      </details>
+      <details>
+        <summary>Ar tai dietų programa?</summary>
+        <p>Ne. Gardela – apie kasdienes vakarienes šeimai: kad nereikėtų kas vakarą galvoti, ką gaminti, ir kad žinotum, kiek išleisi. Kiekvieno patiekalo maistinę vertę matysi, bet svorio tikslų ar dietų čia nėra.</p>
+      </details>
+      <details>
+        <summary>Ar bus „Android“ versija?</summary>
+        <p>Kol kas Gardela veikia tik „iPhone“. „Android“ versiją planuojame.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="closing" aria-labelledby="close-h">
+  <div class="wrap">
+    <img src="img/gardela-192.png" width="88" height="88" alt="" loading="lazy">
+    <h2 id="close-h">Tegul šią savaitę vakarienes suplanuoja kažkas kitas</h2>
+    <span class="soon soon-lg soon-light"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.6" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10.5 18.3h3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Netrukus App Store</span>
+  </div>
+</section>
+
 </main>
+
+<footer class="foot">
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <a class="brand" href="/"><img src="img/gardela-192.png" width="36" height="36" alt="" loading="lazy"><span>Gardela</span></a>
+      <p>Savaitės vakarienių planas ir pirkinių sąrašas su kainomis.</p>
+    </div>
+    <nav aria-label="Teisinė informacija">
+      <a href="/privatumas">Privatumo politika</a>
+      <a href="/salygos">Naudojimo sąlygos</a>
+      <a href="/licencijos">Atvirojo kodo licencijos</a>
+    </nav>
+    <address>
+      <a href="mailto:info@gardela.lt">info@gardela.lt</a><br>
+      MB „Gardela“, įm. k. 308194001<br>
+      Pikulo g. 47, LT-48430 Kaunas
+    </address>
+  </div>
+  <div class="wrap foot-small">
+    <p>© 2026 MB „Gardela“. Svetainė nenaudoja slapukų ir tavęs neseka.</p>
+  </div>
+</footer>
+
+<script src="app.js" defer></script>
 </body>
 </html>
