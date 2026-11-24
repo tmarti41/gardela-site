@@ -18,6 +18,9 @@ h1,h2,h3,p,ul,ol{margin:0}
 ul,ol{padding:0;list-style:none}
 button{font:inherit;color:inherit;cursor:pointer}
 a,button,summary{-webkit-tap-highlight-color:transparent}
+/* greiti bakstelėjimai (pvz. „+“ skaičiuoklėje) neturi priartinti puslapio; priartinimas dviem pirštais lieka */
+html{touch-action:manipulation}
+a,button,summary,label{touch-action:manipulation}
 :focus-visible{outline:3px solid var(--green);outline-offset:3px;border-radius:8px}
 .week :focus-visible,.closing :focus-visible{outline-color:#fff}
 .wrap{max-width:var(--wrap);margin:0 auto;padding:0 28px}
@@ -330,6 +333,22 @@ address{font-style:normal;line-height:1.7}
 .prose summary{font-size:1.1rem;padding:18px 2px}
 .prose pre{white-space:pre-wrap;overflow-wrap:anywhere;font:500 .82rem/1.55 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#2C4434;background:#fff;border:2px solid var(--line);border-radius:14px;padding:18px;margin:0 0 22px}
 @media (max-width:760px){.prose{padding:34px 20px 72px}.prose h2{margin-top:38px}}
+/* licencijų lentelė telefone: eilutė virsta kortele, nereikia slinkti į šoną */
+@media (max-width:700px){
+  .table-wrap{overflow-x:visible}
+  .table-wrap table{display:block;min-width:0}
+  .table-wrap thead{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+  .table-wrap tbody{display:block}
+  .table-wrap tr{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:3px 14px;padding:13px 16px;border-bottom:1px solid var(--line)}
+  .table-wrap tr:last-child{border-bottom:0}
+  .table-wrap td{display:block;padding:0;border:0}
+  .table-wrap td:nth-child(1){grid-column:1;grid-row:1;overflow-wrap:anywhere;color:var(--ink)}
+  .table-wrap td:nth-child(3){grid-column:2;grid-row:1;max-width:7.6em;text-align:right;font-weight:800;color:var(--ink)}
+  .table-wrap td:nth-child(2),.table-wrap td:nth-child(4){grid-column:1/-1;font-size:.86rem;line-height:1.45;color:var(--muted)}
+  .table-wrap td:nth-child(2){grid-row:2}
+  .table-wrap td:nth-child(2)::before{content:"Versija "}
+  .table-wrap td:nth-child(4){grid-row:3}
+}
 
 /* ---------- siauresni ekranai ---------- */
 @media (max-width:1020px){
