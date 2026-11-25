@@ -272,7 +272,7 @@
     });
     mnav.addEventListener('click', function (e) { if (e.target.closest('a')) closeMenu(); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !mnav.hidden) { closeMenu(); menuBtn.focus(); } });
-    /* šuolis į dalį: lygiai po juosta (be praeitos dalies fono ruožo); tolimas šuolis – iškart, artimas – švelniai */
+    /* šuolis į dalį: lygiai po juosta. Visi šuoliai vienodi: tolimą atstumą peršoka iškart, paskutinius GLIDE px privažiuoja per GLIDE_MS */
     var topH = function () { return top.querySelector('.top-in').offsetHeight + 1; };
     var setTopH = function () { document.documentElement.style.setProperty('--top-h', topH() + 'px'); };
     window.addEventListener('resize', setTopH); setTopH();
@@ -281,9 +281,29 @@
       var id = a.getAttribute('href').slice(1), el = id && $(id); if (!el) return;
       e.preventDefault();
       var y = id === 'turinys' ? 0 : Math.max(0, Math.round(el.getBoundingClientRect().top + window.scrollY - topH() + 1));
-      var far = Math.abs(y - window.scrollY) > window.innerHeight * 2.5;
-      window.scrollTo({ top: y, behavior: far || reduce ? 'instant' : 'smooth' });
+      glideTo(y);
     });
+    var GLIDE = 150, GLIDE_MS = 260, glideRaf = 0;
+    var jump = function (y) { window.scrollTo({ top: y, behavior: 'instant' }); };
+    var stopGlide = function () { if (glideRaf) { cancelAnimationFrame(glideRaf); glideRaf = 0; } };
+    var glideTo = function (y) {
+      stopGlide();
+      var max = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+      y = Math.min(y, max);
+      var d = y - window.scrollY;
+      if (reduce || Math.abs(d) < 2) { jump(y); return; }
+      if (Math.abs(d) > GLIDE) jump(y - (d > 0 ? GLIDE : -GLIDE));
+      var from = window.scrollY, dist = y - from, t0 = 0;
+      var step = function (now) {
+        if (!t0) t0 = now;
+        var p = Math.min(1, (now - t0) / GLIDE_MS), k = 1 - Math.pow(1 - p, 3);
+        jump(Math.round(from + dist * k));
+        glideRaf = p < 1 ? requestAnimationFrame(step) : 0;
+      };
+      glideRaf = requestAnimationFrame(step);
+    };
+    /* žmogus pats palietė ar pasuko ratuką – nebetempiam */
+    ['touchstart', 'wheel', 'keydown'].forEach(function (ev) { window.addEventListener(ev, stopGlide, { passive: true }); });
     var links = document.querySelectorAll('.top-nav a, .mnav a');
     var ids = ['savaite', 'kaip-veikia', 'kainos', 'duk'];
     var mark = function () {
